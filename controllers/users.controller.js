@@ -5,6 +5,7 @@ let bcrypt = require('bcrypt');
 let salt = 5;
 let generateToken = require('../utils/generateToken.js');
 
+
 let getAllUsers = asyncHandler(async (req, res) => {
     let users = await User.find({}, { __v: 0 });
     res.status(200).json({

@@ -7,6 +7,7 @@ const usersRouter = require('./routes/users.route');
 const connectDB = require('./helpers/mongodb.connection');
 const statusMessage = require('./utils/statusMessage');
 const cors = require('cors');
+const PORT = process.env.PORT || 4001;
 
 dotenv.config();
 
@@ -32,6 +33,6 @@ app.use((err, req, res, next) => {
 app.use((req, res) => {
   res.status(404).json({ status: statusMessage.FAIL, message: `Can't find ${req.originalUrl} on this server!` });
 });
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on http://localhost:${process.env.PORT}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
